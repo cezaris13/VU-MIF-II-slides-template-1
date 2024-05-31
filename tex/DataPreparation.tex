@@ -1,0 +1,12 @@
+\begin{frame}{Duomenų paruošimas}
+    \begin{itemize}
+        \item VQLS-SVM ir SVM algoritmų mokymui iš irisų duomenų aibės pašalinta Iris virginica duomenys ir atsitiktinai parinkti 7 įrašai. Iris Setosa duomenų klasė pakeista į $-1$, Iris Versicolour į $1$.
+        \item Krūties auglių duomenų rinkinio atsitiktinai paimti 7 įrašai. Benign duomenų klasė pervadinta į $-1$, malignant į $1$.
+        \item Sukonstruojama LSSVM esanti matrica, naudojantis duomenimis. Duomenų klasės atitinkamai užkoduojamos į $\left[0\  \vec{y}\right]^T$. Paruošta matrica išskaidoma į unitarines, su koeficientais:
+        \begin{gather}
+            A = \sum_{l=0}^N c_l A_l, \quad c\in \mathbb{C} \nonumber\\
+            A_l \in \{I,X,Y,Z\}^{\otimes N}\nonumber
+        \end{gather}    
+            
+    \end{itemize}
+\end{frame}

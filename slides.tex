@@ -9,22 +9,32 @@
 \usepackage{amsfonts}
 \usepackage{float}
 \usepackage{hyperref}
+\usepackage{adjustbox}
 \usepackage{textpos} % FOR LOGO
 \usepackage[english,lithuanian]{babel}
 \usepackage{animate}
-\usepackage{caption} 
+\usepackage{caption}
+
 \usepackage{subfig}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{quantikz2}
+\pgfplotsset{compat=1.18} 
 
 \hypersetup{
-    pdfauthor=Vardenis Pavardenis,
+    pdfauthor=Pijus Petkevičius,
     linktoc=all,     %set to all if you want both sections and subsections linked
 }
 
-\title[Title lower]{Title title}
-\subtitle{Presentation}
-\author[Author lower]{\texorpdfstring{Author: \\ Supervisor: assoc. prof. Linas Petkevičius}{Author: , Supervisor: assoc. prof. Linas Petkevičius}} 
-\institute[VU-MIF]{Vilnius University \\ Faculty of Mathematics and Informatics \\ Institute of Computer Science}
-\date[2023-lower-XXX]{2023-title-XXX}
+\title[Variacinio kvantinio tiesinių lygčių sistemų algoritmo pritaikymo  atraminių vektorių klasifikatoriui galimybių tyrimas]{Variacinio kvantinio tiesinių lygčių sistemų algoritmo pritaikymo  atraminių vektorių klasifikatoriui galimybių tyrimas}
+
+\author[Pijus Petkevičius]{Pijus Petkevičius\\Programų sistemų 4 k. 1 gr.} 
+\institute[VU MIF] 
+{
+Vilniaus Universitetas \\ 
+\medskip
+Pijus.Petkevicius@mif.stud.vu.lt
+} 
 
 \bibliography{bib}
 
@@ -34,24 +44,11 @@
 \begin{frame}
   \maketitle
 \end{frame}
-
-% Content
-\input{tex/0content}
-% Introduction
-\input{tex/1RevisedGoals.tex}
-% Revised Dataset
-%\input{tex/2Dataset}
-% Methods used
-\input{tex/3Methods_used}
-% Analysis results
-\input{tex/4Results}
-% Benefits / conclusion
-\input{tex/5Benefits}
-% Bibliography
-\begin{frame}[allowframebreaks]{Bibliography}
-    \printbibliography 
-\end{frame}
- 
-% \appendix
-
+\input{tex/GoalsAndObjectives}
+\input{tex/SVM}
+\input{tex/VQLS}
+\input{tex/DataPreparation}
+\input{tex/ExperimentResults}
+\input{tex/conclusions}
+\input{tex/futureWork}
 \end{document}

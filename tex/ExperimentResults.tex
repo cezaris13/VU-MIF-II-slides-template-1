@@ -1,0 +1,412 @@
+\begin{frame}{Irisų duomenų rinkinio mokymas}
+    \begin{center}
+        % \begin{tikzpicture}
+        %     \begin{axis}[
+        %         ticklabel style={font=\small,fill=none},
+        %         xticklabel style={yshift=-10pt},
+        %         yticklabel style={xshift=-10pt},
+        %         cycle list name=auto,
+        %         xlabel={Iteracijų skaičius},
+        %         ylabel={Nuostolių funkcijos reikšmė},
+        %         xmin=0, xmax=115,
+        %         ymin=0, ymax=1, ytick={0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1},
+        %         legend pos=outer north east,
+        %         ymajorgrids=true,
+        %         grid style=dashed,
+        %         % legend entries={irisai},
+        %         width=10cm,
+        %         height=7cm
+        %         ]
+                
+        %        \addplot table[x=Iteration, y=IrisCostFunction, col sep=comma] {Data/costCOBYLAIris.csv};
+        %     \end{axis}
+        % \end{tikzpicture}
+
+            \begin{tikzpicture}
+                \begin{axis}[
+                    cycle list name=auto,
+                    xlabel={Iteracijų skaičius},
+                    ylabel={Nuostolių funkcijos reikšmė},
+                    xmin=0, xmax=116,
+                    ymin=0, ymax=1, ytick={0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1},
+                    legend pos= north east,
+                    ymajorgrids=true,
+                    grid style=dashed,
+                    % legend entries={irisai},
+                    width=10cm,
+                    height=7cm
+                    ]
+                    \addplot table[x=Iteration, y=iris, col sep=comma] {Data/costDatasetiris.csv};
+                    \addplot table[x=Iteration, y=iris, col sep=comma] {Data/costDatasetirisOneVsAll.csv};
+               \legend{VQLS-SVM išmetant vieną klasę, VQLS-SVM 1 vs all metodu}  
+                \end{axis}
+            \end{tikzpicture}
+    \end{center}
+\end{frame}
+
+\begin{frame}{VQLS-SVM ir SVM klasifikavimo tikslumas}
+    \begin{center}
+            \begin{tikzpicture}  
+                \begin{axis}  
+                [  
+                    ybar=10pt, % ybar command displays the graph in horizontal form, while the xbar command displays the graph in vertical form.  
+                    bar width=1cm,
+                    enlargelimits=0.2,% these limits are used to shrink or expand the graph. The lesser the limit, the higher the graph will expand or grow. The greater the limit, the more graph will shrink.   
+                    legend style={at={(0.4,-0.25)}, % these are the measures of the bottom row containing surplus (wheat, Tea, rice), where -0.25 is the gap between the bottom row and the graph.   
+                    anchor=north,legend columns=-1},     
+                      % here, north is the position of the bottom legend row. You can specify the east, west, or south direction to shift the location.   
+                    ylabel={Algoritmo klasifikavimo tikslumas}, % there should be no line gap between the rows here. Otherwise, latex will show an error.  
+                    symbolic x coords={Iris Setosa, Irisų Virginica, Iris Versicolour},  
+                    xtick=data,  
+                    nodes near coords,  
+                    nodes near coords align={vertical},  
+                    width=10cm,
+                    height=7cm
+                    ]  
+                \addplot coordinates {(Iris Setosa,86.50) (Irisų Virginica, 61.96) (Iris Versicolour, 53.29) }; % these are the measures of a particular bar graph. The tick marks of the y-axis will be adjusted automatically according to the data values entered in the coordinates.  
+                \addplot coordinates {(Iris Setosa, 99.51) (Irisų Virginica,79.86) (Iris Versicolour, 64.83)};  
+                \legend{VQLS-SVM, SVM}  
+                \end{axis}  
+            \end{tikzpicture}   
+    \end{center}
+\end{frame}
+
+
+\begin{frame}{VQLS-SVM ir SVM klasifikavimo tikslumas}
+    \begin{center}
+      \begin{tikzpicture}  
+                \begin{axis}  
+                [  
+                    ybar=10pt, % ybar command displays the graph in horizontal form, while the xbar command displays the graph in vertical form.  
+                    bar width=1cm,
+                    enlargelimits=0.2,% these limits are used to shrink or expand the graph. The lesser the limit, the higher the graph will expand or grow. The greater the limit, the more graph will shrink.   
+                    legend style={at={(0.4,-0.25)}, % these are the measures of the bottom row containing surplus (wheat, Tea, rice), where -0.25 is the gap between the bottom row and the graph.   
+                    anchor=north,legend columns=-1},     
+                      % here, north is the position of the bottom legend row. You can specify the east, west, or south direction to shift the location.   
+                    ylabel={Algoritmo klasifikavimo tikslumas}, % there should be no line gap between the rows here. Otherwise, latex will show an error.  
+                    symbolic x coords={Irisų duomenys, Irisų duomenys 1 vs all, Krūties auglių duomenys},  
+                    xtick=data,  
+                    nodes near coords,  
+                    nodes near coords align={vertical},  
+                    width=15cm,
+                    height=8cm
+                    ]  
+                \addplot coordinates {(Irisų duomenys,92.25806451612902) (Irisų duomenys 1 vs all, 66.43356643356644) (Krūties auglių duomenys, 55.4270462633452) }; % these are the measures of a particular bar graph. The tick marks of the y-axis will be adjusted automatically according to the data values entered in the coordinates.  
+                \addplot coordinates {(Irisų duomenys, 100) (Irisų duomenys 1 vs all,81.74825174825175) (Krūties auglių duomenys, 90.7473309608541)};  
+                \legend{VQLS-SVM, SVM}  
+                 
+                \end{axis}  
+            \end{tikzpicture}    
+    \end{center}
+\end{frame}
+\begin{frame}{Frame Title}
+    \begin{center}
+
+     \begin{tikzpicture}
+                \begin{axis}[
+                  xmin = 7, xmax = 31, xtick={7,19,31},
+                  xticklabels={7, 15, 31},
+                  ymin = 50, ymax = 100, % leave as is 
+                  axis x line*=top,
+                  hide y axis,
+                  xlabel={Apmokymo aibės dydis},
+                  xlabel near ticks,
+                  width=10cm,
+                  height=4cm
+                ]
+                \end{axis}
+                \begin{axis}[
+                    cycle list name=auto,
+                    xlabel={Kubitų skaičius},
+                    ylabel={Klasifikavimo tikslumas},
+                    xmin=3, xmax=5, xtick={3,4,5},
+                    ymin=50, ymax=100, ytick={50,60,70,80,90,100},
+                    legend pos= south east,
+                    ymajorgrids=true,
+                    grid style=dashed,
+                    width=10cm,
+                    height=4cm
+                    ]
+               
+                    \addplot table[x=Kubitai, y=Tikslumas, col sep=comma] {Data/qubitsBreast.csv};
+                   \addplot table[x=Kubitai, y=TikslumasSvm, col sep=comma] {Data/qubitsBreast.csv};
+                   \legend{VQLS-SVM, SVM}
+                \end{axis}
+            \end{tikzpicture}
+            \end{center}
+\end{frame}
+\begin{frame}{Frame Title}
+    \begin{center}
+                    \begin{tabular}{@{}c@{}}
+                \begin{tikzpicture}
+                    \begin{axis}[
+                      xmin = 7, xmax = 31, xtick={7,19,31},
+                      xticklabels={7, 15, 31},
+                      ymin = 90, ymax = 100, % leave as is 
+                      axis x line*=top,
+                      hide y axis,
+                      xlabel={Apmokymo aibės dydis},
+                      xlabel near ticks,
+                      width=10cm,
+                      height=4cm
+                    ]
+                    \end{axis}
+                    \begin{axis}[
+                        cycle list name=auto,
+                        xlabel={Kubitų skaičius},
+                        ylabel={Klasifikavimo tikslumas},
+                        xmin=3, xmax=5, xtick={3,4,5},
+                        ymin=90, ymax=100, ytick={90,92,94,96,98,100},
+                        legend pos=south east,
+                        ymajorgrids=true,
+                        grid style=dashed,
+                        width=10cm,
+                        height=4cm
+                        ]
+                   
+                        \addplot table[x=Kubitai, y=Tikslumas, col sep=comma] {Data/qubitsIris.csv};
+                        \addplot table[x=Kubitai, y=TikslumasSVM, col sep=comma] {Data/qubitsIris.csv};
+                       \legend{VQLS-SVM, SVM}  
+                    \end{axis}
+                \end{tikzpicture} \\
+                % \caption{test}
+                \small (a) Išmetus Iris Virginica duomenų klasės elementus \\
+                \label{fig:subfigOneVSALL1}
+            \end{tabular}
+            \begin{tabular}{@{}c@{}}
+                \begin{tikzpicture}
+                     \begin{axis}[
+                      xmin = 7, xmax = 31, xtick={7,19,31},
+                      xticklabels={7, 15, 31},
+                      ymin = 90, ymax = 100, % leave as is 
+                      axis x line*=top,
+                      hide y axis,
+                      xlabel={Apmokymo aibės dydis},
+                      xlabel near ticks,
+                      width=10cm,
+                      height=4cm
+                    ]
+                    \end{axis}
+                    \begin{axis}[
+                        cycle list name=auto,
+                        xlabel={Kubitų skaičius},
+                        ylabel={Klasifikavimo tikslumas},
+                        xmin=3, xmax=5, xtick={3,4,5},
+                        ymin=50, ymax=100, ytick={50,60,70,80,90,100},
+                        legend pos= south east,
+                        ymajorgrids=true,
+                        grid style=dashed,
+                        width=10cm,
+                        height=4cm
+                        ]
+                        \addplot table[x=Kubitai, y=Tikslumas, col sep=comma] {Data/qubitsIris1VSAll.csv};
+                        \addplot table[x=Kubitai, y=TikslumasSVM, col sep=comma] {Data/qubitsIris1VSAll.csv};
+                       \legend{VQLS-SVM, SVM}  
+                    \end{axis}
+                \end{tikzpicture} \\
+                \small (b) Naudojantis vienas prieš visus (\emph{angl. one vs all}) metodu
+                \label{fig:subfigOneVSALL2}
+            \end{tabular}
+    \end{center}
+\end{frame}
+\begin{frame}{Optimizatorių funkcijos}
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[
+                ticklabel style={font=\small,fill=none},
+                xticklabel style={yshift=-10pt},
+                yticklabel style={xshift=-10pt},
+                cycle multi list={%
+                    color list\nextlist
+                    [1 of]mark list
+                },
+                xlabel={Iteracijų skaičius},
+                ylabel={Nuostolių funkcijos reikšmė},
+                xmin=0, xmax=140,
+                ymin=0, ymax=1, ytick={0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1},
+                legend pos=north east,
+                ymajorgrids=true,
+                grid style=dashed,
+                legend entries={SLSQP,COBYLA,trust-constr},
+                width=10cm,
+                height=7cm
+                ]
+                \addplot
+                table[x=Iteration, y=SLSQP, col sep=comma] {Data/costOptimizers.csv};       
+                \addplot
+                table[x=Iteration, y=COBYLA, col sep=comma] {Data/costOptimizers.csv};
+                \addplot [
+                    color=green,
+                    mark=triangle,
+                ]
+                table[x=Iteration, y=trust-constr, col sep=comma] {Data/costOptimizers.csv};
+            \end{axis}
+        \end{tikzpicture} \\
+    \end{center}
+\end{frame}
+\begin{frame}{Optimizatorių funkcijos}
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[
+                ticklabel style={font=\small,fill=none},
+                xticklabel style={yshift=-10pt},
+                yticklabel style={xshift=-10pt},
+                cycle multi list={%
+                    color list\nextlist
+                    [1 of]mark list
+                },
+                xlabel={Iteracijų skaičius},
+                ylabel={Nuostolių funkcijos reikšmė},
+                xmin=0, xmax=140,
+                ymin=0, ymax=1, ytick={0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1},
+                legend pos=north east,
+                ymajorgrids=true,
+                grid style=dashed,
+                legend entries={BFGS,L-BFGS-B,trust-constr},
+                width=10cm,
+                height=7cm
+                ]
+                \addplot [
+                    color=violet,
+                    mark=triangle,
+                ]
+                table[x=Iteration, y=BFGS, col sep=comma] {Data/costOptimizers.csv};
+                \addplot [
+                    color=orange,
+                    mark=triangle,
+                ]
+                table[x=Iteration, y=L-BFGS-B, col sep=comma] {Data/costOptimizers.csv};
+                \addplot [
+                    color=green,
+                    mark=triangle,
+                ]
+                table[x=Iteration, y=trust-constr, col sep=comma] {Data/costOptimizers.csv};
+            \end{axis}
+        \end{tikzpicture} \\
+    \end{center}
+\end{frame}
+
+\begin{frame}{Frame Title}
+    \begin{center}
+                        \begin{tikzpicture}
+                    \begin{axis}[
+                        cycle multi list={%
+                            color list\nextlist
+                            [1 of]mark list
+                        },
+                        xlabel={Iteracijų skaičius},
+                        ylabel={Nuostolių funkcijos reikšmė},
+                        xmin=0, xmax=200,
+                        ymin=0, ymax=1, ytick={0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1},
+                        legend pos=north east,
+                        ymajorgrids=true,
+                        grid style=dashed,
+                        legend entries={$\alpha=0.1$, $\alpha=0.5$, $\alpha=0.75$, $\alpha=0.9$},
+                        width=16cm,
+                        height=8cm
+                        ]
+                        \addplot
+                        table[x=Iteration, y=ADAM_0.1, col sep=comma] {Data/costOptimizersGradient.csv};       
+                        \addplot
+                        table[x=Iteration, y=ADAM_0.5, col sep=comma] {Data/costOptimizersGradient.csv};
+
+                        \addplot [
+                            color=violet,
+                            mark=triangle,
+                        ]
+                        table[x=Iteration, y=ADAM_0.75, col sep=comma] {Data/costOptimizersGradient2.csv};
+
+                        \addplot [
+                            color=green,
+                            mark=triangle,
+                        ]
+                        table[x=Iteration, y=ADAM_0.9, col sep=comma] {Data/costOptimizersGradient2.csv};
+                    \end{axis}
+                \end{tikzpicture}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Frame Title}
+    \begin{center}
+                        \begin{tikzpicture}
+                    \begin{axis}[
+                        cycle multi list={%
+                            color list\nextlist
+                            [1 of]mark list
+                        },
+                        xlabel={Iteracijų skaičius},
+                        ylabel={Nuostolių funkcijos reikšmė},
+                        xmin=0, xmax=200,
+                        ymin=0, ymax=1, ytick={0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1},
+                        legend pos=south west,
+                        ymajorgrids=true,
+                        grid style=dashed,
+                        legend entries={$\alpha=0.5$, $\alpha=0.6$, $\alpha=0.7$, $\alpha=0.8$, $\alpha=0.9$ },
+                        width=16cm,
+                        height=8cm
+                        ]
+                        \addplot 
+                        table[x=Iteration, y=GD_0.5, col sep=comma] {Data/costOptimizersGradient.csv};
+                         \addplot
+                        table[x=Iteration, y=GD_0.6, col sep=comma] {Data/costOptimizersGradient2.csv};    
+                         \addplot
+                         [
+                            color=orange,
+                            mark=triangle,
+                        ]
+                        table[x=Iteration, y=GD_0.7, col sep=comma] {Data/costOptimizersGradient2.csv};    
+                         \addplot
+                         [
+                            color=green,
+                            mark=triangle,
+                        ]
+                        table[x=Iteration, y=GD_0.8, col sep=comma] {Data/costOptimizersGradient2.csv};    
+                         \addplot
+                            [
+                            color=violet,
+                            mark=triangle,
+                        ]
+                        table[x=Iteration, y=GD_0.9, col sep=comma] {Data/costOptimizersGradient2.csv};    
+                    \end{axis}
+                \end{tikzpicture}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Frame Title}
+    \begin{center}
+        \begin{tikzpicture}
+                    \begin{axis}[
+                        cycle multi list={%
+                            color list\nextlist
+                            [1 of]mark list
+                        },
+                        xlabel={Iteracijų skaičius},
+                        ylabel={Nuostolių funkcijos reikšmė},
+                        xmin=0, xmax=140,
+                        ymin=0, ymax=1, ytick={0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1},
+                        legend pos=north east,
+                        ymajorgrids=true,
+                        grid style=dashed,
+                        legend entries={ADAM $\alpha = 0.5$, COBYLA,Gradient descend $\alpha = 0.9$,SLSQP},
+                        width=16cm,
+                        height=8cm
+                        ]
+                        \addplot
+                        table[x=Iteration, y=ADAM_0.5, col sep=comma] {Data/costOptimizersGradient.csv};   
+                        \addplot
+                        table[x=Iteration, y=COBYLA, col sep=comma] {Data/costOptimizers.csv};
+                        \addplot [
+                            color=violet,
+                            mark=triangle,
+                        ]
+                        table[x=Iteration, y=GD_0.9, col sep=comma] {Data/costOptimizersGradient2.csv};
+                        \addplot
+                        [
+                            color=green,
+                            mark=triangle,
+                        ]
+                        table[x=Iteration, y=SLSQP, col sep=comma] {Data/costOptimizers.csv};     
+                    \end{axis}
+                \end{tikzpicture} 
+    \end{center}
+\end{frame}
